@@ -1,0 +1,70 @@
+<div class="col-md-8 col-md-offset-2">
+     <ul *ngFor = "let db of databases">
+       <li>{{db.appName}}</li>
+     </ul> 
+    </div> 
+
+<div class="col-md-8 col-md-offset-2">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="appName">Application Name</label>
+            <input 
+                    type="text" 
+                    id="appName" 
+                    class="form-control" 
+                    formControlName="appName">
+        </div>
+        <div class="form-group">
+            <label for="appEnvironment">Environment</label>
+            <input  
+                      type="text" 
+                      id="appEnvironment" 
+                      class="form-control"   
+                      formControlName="appEnvironment">
+        </div>
+        <div class="form-group">
+            <label for="serverName">Server Name</label>
+            <input 
+                   type="text" 
+                   id="serverName" 
+                   class="form-control" 
+                   formControlName="serverName">
+        </div>
+        <div class="form-group">
+            <label for="port">Port</label>
+            <input  
+                   type="text" 
+                   id="port" 
+                   class="form-control" 
+                   formControlName="port">
+        </div>
+         <div class="form-group">
+            <label for="sid">SID</label>
+            <input  
+                   type="text" 
+                   id="sid" 
+                   class="form-control" 
+                   formControlName="sid">
+        </div>        
+          <div class="form-group">
+            <label for="userName">UserName</label>
+            <input  
+                   type="text" 
+                   id="userName" 
+                   class="form-control" 
+                   formControlName="userName">
+        </div>
+         <div class="form-group">
+            <label for="password">Password</label>
+            <input  
+                   type="text" 
+                   id="password" 
+                   class="form-control" 
+                   formControlName="password">
+        </div>
+            <button 
+                  class="btn btn-primary" 
+                   type="submit"
+           [disabled]="!myForm.valid" >Submit</button>
+    </form>
+</div>

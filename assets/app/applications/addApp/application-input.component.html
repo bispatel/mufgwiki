@@ -1,0 +1,40 @@
+<div class="col-md-8 col-md-offset-2">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="appName">Application</label>
+            <input 
+                    type="text" 
+                    id="appName" 
+                    class="form-control" 
+                    formControlName="appName">
+        </div>
+        <div class="form-group">
+            <label for="releaseRef">Release Ref</label>
+            <input  
+                      type="text" 
+                      id="releaseRef" 
+                      class="form-control"   
+                      formControlName="releaseRef">
+        </div>
+        <div class="form-group">
+            <label for="estimation">Size (PDS)</label>
+            <input  
+                      type="text" 
+                      id="estimation" 
+                      class="form-control"   
+                      formControlName="estimation">
+        </div>
+        <div class="form-group">
+            <label for="startDate">Technology</label>
+            <input  
+                      type="text" 
+                      id="startDate" 
+                      class="form-control"   
+                      formControlName="startDate">
+        </div>
+        <button 
+                  class="btn btn-primary" 
+                   type="submit"
+           [disabled]="!myForm.valid" >Submit</button>
+    </form>
+</div>
