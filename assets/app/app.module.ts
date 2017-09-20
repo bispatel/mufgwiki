@@ -23,6 +23,8 @@ import { ProjectComponent } from "./projects/project.component";
 import { ProjectService } from "./projects/service/project.service";
 import { AppReleaseComponent } from "./applications/application.component";
 import { AppReleaseService } from "./applications/service/application.service";
+import { AppLinkComponent } from "./appLinks/appLink.component";
+import { AppLinkService } from "./appLinks/service/appLink.service";
 
 @NgModule({
     declarations: [
@@ -35,7 +37,8 @@ import { AppReleaseService } from "./applications/service/application.service";
         RegistrationComponent,    
         ErrorComponent,
         DatabaseComponent,
-        AboutComponent
+        AboutComponent,
+        AppLinkComponent
     ],
     imports: [
               BrowserModule,             
@@ -49,7 +52,8 @@ import { AppReleaseService } from "./applications/service/application.service";
                DatabaseService,
                AboutService,
                ProjectService,
-               AppReleaseService
+               AppReleaseService,
+               AppLinkService
             ],
     bootstrap: [AppComponent]
 })

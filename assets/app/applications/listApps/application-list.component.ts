@@ -5,15 +5,22 @@ import { Application } from "../model/application.model";
 
 @Component({
     selector:'app-application-list',
-    template:`<table border="1">
-    <tr *ngFor="let app of apps">
-        <td>{{app.appName}}</td>
-        <td>{{app.releaseRef}}</td>
-        <td>{{app.estimation}}</td>
-        <td>{{app.startDate}}</td>
-    </tr>
-</table>
-    `
+    template:`<table class="table">
+                    <tr>
+                        <th>#</th>
+                        <th>Application</th>
+                        <th>Release </th> 
+                        <th>Estimation</th>
+                         <th>Start Date</th>
+                    </tr>
+                    <tr *ngFor="let app of apps; let i = index">
+                        <td>{{i + 1}}</td>
+                        <td>{{app.appName}}</td>
+                        <td>{{app.releaseRef}}</td>
+                        <td>{{app.estimation}}</td>
+                        <td>{{app.startDate}}</td>
+                    </tr>
+                </table>`
 })
 
 export class ApplicationListComponent implements OnInit{

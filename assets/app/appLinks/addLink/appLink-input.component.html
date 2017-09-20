@@ -1,0 +1,48 @@
+<div class="col-md-8 col-md-offset-2">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input 
+                    type="text" 
+                    id="location" 
+                    class="form-control" 
+                    formControlName="location">
+        </div>
+        <div class="form-group">
+            <label for="appName">Application</label>
+            <input  
+                      type="text" 
+                      id="appName" 
+                      class="form-control"   
+                      formControlName="appName">
+        </div>
+        <div class="form-group">
+            <label for="envName">Environment</label>
+            <input  
+                      type="text" 
+                      id="envName" 
+                      class="form-control"   
+                      formControlName="envName">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input  
+                      type="text" 
+                      id="description" 
+                      class="form-control"   
+                      formControlName="description">
+        </div>
+        <div class="form-group">
+            <label for="url">Link</label>
+            <input  
+                      type="text" 
+                      id="url" 
+                      class="form-control"   
+                      formControlName="url">
+        </div>
+        <button 
+                  class="btn btn-primary" 
+                   type="submit"
+           [disabled]="!myForm.valid" >Submit</button>
+    </form>
+</div>
