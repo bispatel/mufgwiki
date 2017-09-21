@@ -11,8 +11,7 @@ import { ErrorComponent } from "./errors/error.component";
 import { ErrorService } from "./errors/error.service";
 import { MessageModule } from "./messages/messages.module";
 
-import { DatabaseComponent } from "./dbDetails/db.component";
-import { DatabaseService } from "./dbDetails/db.service";
+
 import { IndexComponent } from "./index/login/index.component";
 import { RegistrationComponent } from "./index/registration/registration.component";
 import { AuthService } from "./auth/service/auth.service";
@@ -25,7 +24,12 @@ import { AppReleaseComponent } from "./applications/application.component";
 import { AppReleaseService } from "./applications/service/application.service";
 import { AppLinkComponent } from "./appLinks/appLink.component";
 import { AppLinkService } from "./appLinks/service/appLink.service";
-
+import { VMComponent } from "./vmdetails/vmdetails.component";
+import { VMService } from "./vmdetails/service/vmdetails.service";
+import { DatabaseComponent } from "./dbDetails/database.component";
+import { DatabaseService } from "./dbDetails/service/database.service";
+import { FileUploadComponent } from "./fileUpload/fileUpload.component";
+import {FileUploadModule} from "ng2-file-upload";
 @NgModule({
     declarations: [
         AppComponent,
@@ -38,14 +42,17 @@ import { AppLinkService } from "./appLinks/service/appLink.service";
         ErrorComponent,
         DatabaseComponent,
         AboutComponent,
-        AppLinkComponent
+        AppLinkComponent,
+        VMComponent,     
+        FileUploadComponent        
     ],
     imports: [
               BrowserModule,             
               routing,
               ReactiveFormsModule,
               HttpModule,
-              MessageModule            
+              MessageModule,
+              FileUploadModule            
             ],
     providers:[AuthService,
                ErrorService,
@@ -53,7 +60,8 @@ import { AppLinkService } from "./appLinks/service/appLink.service";
                AboutService,
                ProjectService,
                AppReleaseService,
-               AppLinkService
+               AppLinkService,
+               VMService
             ],
     bootstrap: [AppComponent]
 })

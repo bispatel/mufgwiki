@@ -34,9 +34,7 @@ router.post('/', function (req, res, next) {
        sid:req.body.sid,
        userName:req.body.userName,
        password:req.body.password   
-     });
-     
-     alert(req.body.appName);
+     });     
      
      db.save(function(err,result){
        if(err){
