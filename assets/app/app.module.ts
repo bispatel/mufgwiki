@@ -30,6 +30,8 @@ import { DatabaseComponent } from "./dbDetails/database.component";
 import { DatabaseService } from "./dbDetails/service/database.service";
 import { FileUploadComponent } from "./fileUpload/fileUpload.component";
 import {FileUploadModule} from "ng2-file-upload";
+import { VMDialogComponent } from "./vmdetails/vmdetails.dialogComponent";
+import { DialogService, BootstrapModalModule } from "ng2-bootstrap-modal";
 @NgModule({
     declarations: [
         AppComponent,
@@ -44,10 +46,10 @@ import {FileUploadModule} from "ng2-file-upload";
         AboutComponent,
         AppLinkComponent,
         VMComponent,     
-        FileUploadComponent        
+        FileUploadComponent                
     ],
     imports: [
-              BrowserModule,             
+              BrowserModule,                           
               routing,
               ReactiveFormsModule,
               HttpModule,
@@ -62,7 +64,7 @@ import {FileUploadModule} from "ng2-file-upload";
                AppReleaseService,
                AppLinkService,
                VMService
-            ],
+            ], 
     bootstrap: [AppComponent]
 })
 export class AppModule {

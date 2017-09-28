@@ -43,4 +43,38 @@ router.post('/', function (req, res, next) {
      });
 });
 
+
+//Delete the VM
+router.delete('/:id',function(req,res,next){   
+   VMDetail.findById(req.params.id,function(err,vmdetails){
+     if (err){
+         return res.status(500).json({
+            title: 'An error occurred',
+            error:err
+         });
+     }     
+     if(!vmdetails){
+         return res.status(500).json({
+           title: 'No VM Found!',
+           error: {message: 'VM not found'}
+         });
+     }    
+    vmdetails.remove(function(err,result){
+       if(err){
+           return res.status(500).json({
+              title:'An error occurred',
+              error:err
+           });
+       }
+        res.status(200).json({
+            message:'Deleted VM',
+            obj:result
+        });
+    });
+   });
+});
+
+
+
+
 module.exports = router;

@@ -94,6 +94,7 @@ export class MessageService {
          const token = localStorage.getItem('token') 
                     ? '?token='+localStorage.getItem('token')
                     :'';
+                    alert(message.messageId);
         return this.http.delete(this._deleteUrl+message.messageId+token)
         .map((response:Response)=>response.json())
          .catch((error:Response) =>{

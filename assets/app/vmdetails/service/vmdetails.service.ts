@@ -14,6 +14,7 @@ import { VMDetail } from "../model/vmdetails.model";
 @Injectable()
 export class VMService {
     private vmList: VMDetail[]=[];
+     private _deleteUrl = "/vmDetails/"
     editedApp = new EventEmitter<VMDetail>();
     constructor(private http: Http,
                 private errorService:ErrorService){
@@ -44,7 +45,8 @@ export class VMService {
              transformeVMDetails.push(new VMDetail(
                  app.hostName,
                  app.osDesc,
-                 app.applications                
+                 app.applications,
+                 app._id               
                  )); 
              }
             this.vmList = transformeVMDetails;
@@ -54,6 +56,16 @@ export class VMService {
            this.errorService.handleError(error.json()); 
            return Observable.throw(error.json());
         });    
+    }
+
+      deleteVM(vm:VMDetail){
+        this.vmList.splice(this.vmList.indexOf(vm),1);//Front end code only         
+        return this.http.delete(this._deleteUrl+vm.hostId)
+        .map((response:Response)=>response.json())
+         .catch((error:Response) =>{
+           this.errorService.handleError(error.json()); 
+           return Observable.throw(error.json());
+        });
     }
 
 }
